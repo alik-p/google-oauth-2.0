@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppState } from './core/state-management/app.state';
 import { SignInPageComponent } from './sign-in/sign-in-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { UserDetailsPageComponent } from './user-details/user-details-page.component';
@@ -34,7 +35,7 @@ const ANGULAR_MATERIAL = [
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),
     ...ANGULAR_MATERIAL,
