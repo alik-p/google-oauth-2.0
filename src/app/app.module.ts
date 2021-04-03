@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +34,9 @@ const ANGULAR_MATERIAL = [
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxsModule.forRoot([], {
+      developmentMode: !environment.production
+    }),
     ...ANGULAR_MATERIAL,
   ],
   providers: [],
