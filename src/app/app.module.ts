@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -8,6 +12,12 @@ import { SignInPageComponent } from './sign-in/sign-in-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { UserDetailsPageComponent } from './user-details/user-details-page.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+
+const ANGULAR_MATERIAL = [
+  MatButtonModule,
+  MatIconModule,
+  MatToolbarModule,
+];
 
 @NgModule({
   declarations: [
@@ -21,6 +31,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    ...ANGULAR_MATERIAL,
   ],
   providers: [],
   bootstrap: [AppComponent]
