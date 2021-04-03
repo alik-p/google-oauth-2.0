@@ -15,9 +15,7 @@ export class GoogleAuthService {
   #isApiLoaded = false;
   #user$ = new BehaviorSubject<GoogleUser>(undefined);
 
-  constructor() {
-    this.loadGoogleApi$().pipe(take(1)).subscribe();
-  }
+  constructor() { }
 
   authenticateUser$(): Observable<BasicProfile> {
     return this.getUserProfile$();
@@ -78,7 +76,10 @@ export class GoogleAuthService {
 
   private signIn$(): Observable<GoogleUser> {
     return this.getAuthClient$().pipe(
-      switchMap(authClient => from(authClient.signIn())),
+      switchMap(authClient => authClient.currentUser
+        ? of(authClient.currentUser.get())
+        : from(authClient.signIn())
+      ),
       tap((user: GoogleUser) => {
         this.#user$.next(user);
       })
