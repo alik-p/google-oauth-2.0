@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 
 const ANGULAR_MATERIAL = [
   MatButtonModule,
+  MatCardModule,
   MatIconModule,
   MatToolbarModule,
 ];

@@ -1,1 +1,22 @@
-<p>user-details works!</p>
+<h1>User Details</h1>
+<mat-card class="user-card">
+  <mat-card-content class="card-content">
+    <div class="user-image">
+      <img [src]="user?.getImageUrl()" alt="User image">
+    </div>
+    <div class="user-details">
+      <div class="user-details--grid">
+        <div class="grid-label">Full Name</div>
+        <div class="grid-text">{{user?.getName()}}</div>
+        <div class="grid-label">First Name</div>
+        <div class="grid-text">{{user?.getGivenName()}}</div>
+        <div class="grid-label">Last Name</div>
+        <div class="grid-text">{{user?.getFamilyName()}}</div>
+        <div class="grid-label">Email</div>
+        <div class="grid-text">{{user?.getEmail()}}</div>
+        <div class="grid-label">ID</div>
+        <div class="grid-text">{{user?.getId()}}</div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
