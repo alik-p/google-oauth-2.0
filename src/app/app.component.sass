@@ -1,0 +1,37 @@
+$header-height: 64px
+$footer-height: 64px
+
+.header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 100
+  height: $header-height
+
+  .spacer
+    flex: 1 1 auto
+
+.main
+  position: relative
+  height: calc(100% - #{$header-height + $footer-height})
+  background: #f5f5f5
+  padding-top: $header-height
+  padding-bottom: $footer-height
+
+  .content-wrapper
+    padding: 24px
+    height: calc(100% - #{$footer-height})
+    background: white
+    margin: 12px 24px
+
+.footer
+  position: fixed
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 100
+  height: $footer-height
+  display: flex
+  justify-content: center
+  align-items: center

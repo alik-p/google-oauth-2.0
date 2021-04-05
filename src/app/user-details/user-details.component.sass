@@ -1,0 +1,33 @@
+$small-width: 672px
+
+.card-content
+  display: flex
+  flex-direction: row
+  @media (max-width: $small-width)
+    flex-direction: column
+
+  .user-image
+    margin-right: 2rem
+    @media (max-width: $small-width)
+      align-self: center
+      img
+        border-radius: 50%
+
+.user-card
+  .mat-card-header-text
+    margin-left: 0
+
+.user-details--grid
+  display: grid
+  grid-template-columns: 5rem auto
+  grid-column-gap: 1rem
+  @media (max-width: $small-width)
+    grid-template-columns: auto
+    grid-column-gap: 0
+
+  .grid-label
+    font-weight: bold
+    text-align: end
+    color: rgba(0, 0, 0, 0.54)
+    @media (max-width: $small-width)
+      text-align: left
