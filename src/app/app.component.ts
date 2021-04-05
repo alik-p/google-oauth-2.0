@@ -1,4 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { SignOut } from './core/state-management/app.actions';
+import { AppState } from './core/state-management/app.state';
 import { IconRegistryService } from './shared/icon-registry.service';
 
 @Component({
@@ -8,12 +13,22 @@ import { IconRegistryService } from './shared/icon-registry.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
+  @Select(AppState.isSignedIn) isSignedIn$: Observable<boolean>;
   date = Date.now();
 
-  constructor(private iconRegistryService: IconRegistryService) { }
+  constructor(
+    private iconRegistryService: IconRegistryService,
+    private router: Router,
+    private store: Store,
+  ) { }
 
   ngOnInit(): void {
     this.registryIcons();
+  }
+
+  onSignOut(): void {
+    this.store.dispatch(new SignOut());
+    this.router.navigate(['/sign-in']);
   }
 
   private registryIcons(): void {

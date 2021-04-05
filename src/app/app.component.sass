@@ -9,6 +9,9 @@ $footer-height: 64px
   z-index: 100
   height: $header-height
 
+  .spacer
+    flex: 1 1 auto
+
 .main
   position: relative
   height: calc(100% - #{$header-height + $footer-height})
@@ -20,7 +23,7 @@ $footer-height: 64px
     padding: 24px
     height: calc(100% - #{$footer-height})
     background: white
-    margin: 0 24px
+    margin: 12px 24px
 
 .footer
   position: fixed
