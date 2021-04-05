@@ -9,8 +9,10 @@
   </mat-toolbar>
 </header>
 <main class="main">
-  <router-outlet></router-outlet>
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
 </main>
 <footer class="footer">
-  <span>&copy; 2021 Aliaksandr Papko</span>
+  <span>&copy; {{date | date: 'yyyy'}} Aliaksandr Papko</span>
 </footer>

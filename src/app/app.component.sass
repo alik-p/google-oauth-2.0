@@ -11,9 +11,16 @@ $footer-height: 64px
 
 .main
   position: relative
-  height: calc(100vh - #{$header-height + $footer-height})
+  height: calc(100% - #{$header-height + $footer-height})
+  background: #f5f5f5
   padding-top: $header-height
   padding-bottom: $footer-height
+
+  .content-wrapper
+    padding: 24px
+    height: calc(100% - #{$footer-height})
+    background: white
+    margin: 0 24px
 
 .footer
   position: fixed

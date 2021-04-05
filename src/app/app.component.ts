@@ -8,6 +8,7 @@ import { IconRegistryService } from './shared/icon-registry.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
+  date = Date.now();
 
   constructor(private iconRegistryService: IconRegistryService) { }
 
