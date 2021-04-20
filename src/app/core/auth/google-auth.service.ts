@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, bindCallback, from, Observable, of } from 'rxjs';
-import { catchError, map, switchMap, take, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import BasicProfile = gapi.auth2.BasicProfile;
 import GoogleAuth = gapi.auth2.GoogleAuth;
@@ -76,10 +76,12 @@ export class GoogleAuthService {
 
   private signIn$(): Observable<GoogleUser> {
     return this.getAuthClient$().pipe(
-      switchMap(authClient => authClient.currentUser
-        ? of(authClient.currentUser.get())
-        : from(authClient.signIn())
-      ),
+      switchMap(authClient => {
+        const googleUser: GoogleUser = authClient.currentUser?.get();
+        return googleUser?.isSignedIn()
+          ? of(googleUser)
+          : from(authClient.signIn());
+      }),
       tap((user: GoogleUser) => {
         this.#user$.next(user);
       })
